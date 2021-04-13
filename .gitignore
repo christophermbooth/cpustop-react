@@ -1,0 +1,9 @@
+#Environment Variables
+.env
+
+#Node
+/node_modules
+
+# Builds
+/public/bundle.js
+/public/bundle.js.LICENSE.txt
