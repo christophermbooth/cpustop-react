@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = 3000;
+const db = require('./db/db');
 
 const public = path.join(__dirname, "../public");
 const html = path.join(public, "index.html");
