@@ -3,7 +3,7 @@ import { ProductListEntry } from '../components';
 
 const ProductList = ({ products }) => {
   return (
-    <div>
+    <div className="product-list-container">
       {products.map( item => <ProductListEntry product={item} /> )}
     </div>
   )

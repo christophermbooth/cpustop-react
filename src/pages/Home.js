@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 // import ProductList from '../components/ProductList';
 import { ProductList } from '../components';
 import axios from 'axios';
+import "../styles/Home.scss";
 
 const Home = () => {
 
@@ -19,7 +20,7 @@ const Home = () => {
 
 
   return (
-    <div>
+    <div className="home-container">
       {isLoading && <p>Loading products...please wait</p>}
       {!isLoading && <ProductList products={products} />}
     </div>
