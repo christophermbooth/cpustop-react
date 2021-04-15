@@ -8,7 +8,8 @@
     "build": "webpack --mode=production",
     "start": "webpack serve",
     "watch": "webpack --watch --mode=development",
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "load": "node server/test/index.js"
   },
   "keywords": [],
   "author": "",

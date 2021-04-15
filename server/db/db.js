@@ -1,41 +1,69 @@
 const mysql = require('mysql2/promise');
 const { Sequelize, DataTypes } = require('sequelize');
-require('dotenv').config();
+const productModel = require('./models/Product');
 
-module.exports = db = {};
+//configs
+const user = process.env.SQL_USER;
+const host = process.env.SQL_HOST;
+const database = process.env.SQL_DATABASE;
+const password = process.env.SQL_PASS;
+const port = process.env.SQL_PORT;
 
-initialize();
+const db = {};
 
-async function initialize() {
-    // create db if it doesn't already exist
-    const user = process.env.SQL_USER;
-    const host = process.env.SQL_HOST;
-    const database = process.env.SQL_DATABASE;
-    const password = process.env.SQL_PASS;
-    const port = process.env.SQL_PORT;
-
-    const connection = await mysql.createConnection({ host, user, port, password })
-      .then((conn) => {
-        console.info('Connetion to database succesfull')
-        conn.query(`CREATE DATABASE IF NOT EXISTS \`${database}\`;`)
-          .then(() => console.info('Database Created'))
-          .catch(err => console.warn('Could not create database', err))
+//Connects to mysql server to check for existence of database; creates if not found
+mysql.createConnection({ host, user, port, password })
+  .then(conn => {
+    conn.query(`SHOW DATABASES LIKE '${database}';`)
+      .then(res => {
+        if (res[0].length) { return; }
+        else { 
+          initialize()
+          conn.end();
+        }
       })
-      .catch(err => console.warn('Cound not connect to database', err))
+      .catch(err => console.warn(err))
+  })
+  .catch(err => console.warn(err))
 
-    // connect to db
-    const sequelize = new Sequelize(database, user, password, {
-      host,
-      dialect: 'mysql',
-      port,
-      logging: true
-     });
+//initalize sequelize connection for models to be used in routes
+const sequelize = new Sequelize(database, user, password, {
+  host,
+  dialect: 'mysql',
+  port,
+  logging: false
+});
 
-    // init models and add them to the exported db object
-    db.Product = require('./models/Product')(sequelize, DataTypes);
+db.Product = productModel(sequelize, Sequelize);
 
-    // sync all models with database
-    await sequelize.sync()
-      .then(() => console.info(`Model Sync Succesfull!`))
-      .catch(err => console.warn(`Error Syncing Models`, err))
+module.exports = db;
+
+//creates database and table if needed
+async function initialize() {
+  await mysql.createConnection({ host, user, port, password })
+  .then((conn) => {
+    console.info('Connetion to database succesfull')
+    conn.query(`CREATE DATABASE \`${database}\`;`)
+      .then( () => {
+        console.info('Database Created')
+        conn.end();
+        //use sequelize to create table from model
+        const sequelize = new Sequelize(database, user, password, {
+          host,
+          dialect: 'mysql',
+          port,
+          logging: false
+        });
+
+        productModel(sequelize, Sequelize);
+        // sync all models with database
+        sequelize.sync()
+          .then(() => console.info(`Model Sync Succesfull!`))
+          .catch(err => console.warn(`Error Syncing Models`, err))
+      })
+      .catch(err => {
+        console.warn('Databases already exists', err)
+      })
+  })
+  .catch(err => console.warn('Cound not connect to database', err))
 }

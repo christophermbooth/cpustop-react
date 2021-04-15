@@ -1,5 +1,3 @@
-const { Sequelize, DataTypes } = require("sequelize");
-
 module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define('product', {
     manufacturer: {
@@ -31,8 +29,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   },
     {
+      indexes: [
+        {
+          unique: true,
+          fields: ['manufacturer', 'model']
+        }
+      ]
+    },
+    {
       freezeTableName: true
-
     });
+
   return Product;
-}
+};
