@@ -30,6 +30,8 @@ productRoute.get('/item/:item', (req, res) => {
     })
 })
 
+//The following could be combined into one route with a little logic
+
 //increment "likes"
 productRoute.patch('/likes/add/:item', (req, res) => {
   const { item } = req.params;
