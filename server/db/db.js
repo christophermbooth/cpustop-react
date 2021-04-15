@@ -35,6 +35,7 @@ const sequelize = new Sequelize(database, user, password, {
 });
 
 db.Product = productModel(sequelize, Sequelize);
+db.sequelize = sequelize;
 
 module.exports = db;
 
