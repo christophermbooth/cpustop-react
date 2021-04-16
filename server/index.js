@@ -11,6 +11,7 @@ const port = process.env.PORT || 3000;
 const public = path.join(__dirname, "../public");
 const html = path.join(public, "index.html");
 
+//middleware
 app.use(express.static(public));
 app.use(cors());
 
