@@ -28,7 +28,7 @@ mysql.createConnection({ host, user, port, password })
   .catch(err => console.warn(err))
 
 
-
+//Uses Sequelize to import example data into table
 function importData() {
   const { Product } = db;
   console.info('Adding data items to database. Please wait...')
@@ -56,7 +56,7 @@ function importData() {
     .catch(err => console.warn(err))
   })
 }
-
+//Handles creation of database and table. Imports example data
 async function initialize() {
   await mysql.createConnection({ host, user, port, password })
   .then((conn) => {
