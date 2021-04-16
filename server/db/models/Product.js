@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     clock: {
-      type: DataTypes.DECIMAL
+      type: DataTypes.DECIMAL(10,1)
     },
     likes: {
       type: DataTypes.INTEGER
