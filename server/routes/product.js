@@ -35,7 +35,6 @@ productRoute.get('/item/:item', (req, res) => {
 //increment "likes"
 productRoute.patch('/likes/add/:item', (req, res) => {
   const { item } = req.params;
-  console.log(item, 'ID')
   Product.increment('likes', { where : { id: item}})
     .then(() => res.sendStatus(204))
     .catch(err => {
@@ -46,7 +45,6 @@ productRoute.patch('/likes/add/:item', (req, res) => {
 //decrement "likes"
 productRoute.patch('/likes/remove/:item', (req, res) => {
   const { item } = req.params;
-  console.log(item, 'ID')
   Product.decrement('likes', { where : { id: item}})
     .then(() => res.sendStatus(204))
     .catch(err => {
