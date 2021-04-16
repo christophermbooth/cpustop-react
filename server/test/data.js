@@ -74,7 +74,7 @@ module.exports = data = [
     "clock": 3.7,
     "likes": 0,
     "price": 499.99,
-    "image": "https://images-ext-2.discordapp.net/external/nIdJO6YDohmA4j6Rqpf6TA9SEbuWxw4qx-yVj8quSqo/https/assets.rockpapershotgun.com/images/2020/04/AMD-Ryzen-CPU-1212x682.jpg/RPSS/thumbnail/1920x1080/format/jpg/quality/75?width=1804&height=1015"
+    "image": "https://th.bing.com/th/id/OIP.tFjEjAVtGL_N0BSOIAiW0QHaG2?pid=ImgDet&rs=1"
   },
   {
     "manufacturer": "Intel",
@@ -85,7 +85,7 @@ module.exports = data = [
     "clock": 3.7,
     "likes": 0,
     "price": 474.99,
-    "image": "https://images-ext-2.discordapp.net/external/nIdJO6YDohmA4j6Rqpf6TA9SEbuWxw4qx-yVj8quSqo/https/assets.rockpapershotgun.com/images/2020/04/AMD-Ryzen-CPU-1212x682.jpg/RPSS/thumbnail/1920x1080/format/jpg/quality/75?width=1804&height=1015"
+    "image": "https://th.bing.com/th/id/OIP.tFjEjAVtGL_N0BSOIAiW0QHaG2?pid=ImgDet&rs=1"
   },
   {
     "manufacturer": "Intel",
@@ -96,7 +96,7 @@ module.exports = data = [
     "clock": 3.6,
     "likes": 0,
     "price": 409.99,
-    "image": "https://images-ext-2.discordapp.net/external/nIdJO6YDohmA4j6Rqpf6TA9SEbuWxw4qx-yVj8quSqo/https/assets.rockpapershotgun.com/images/2020/04/AMD-Ryzen-CPU-1212x682.jpg/RPSS/thumbnail/1920x1080/format/jpg/quality/75?width=1804&height=1015"
+    "image": "https://th.bing.com/th/id/OIP.tFjEjAVtGL_N0BSOIAiW0QHaG2?pid=ImgDet&rs=1"
   },
   {
     "manufacturer": "Intel",
@@ -107,6 +107,6 @@ module.exports = data = [
     "clock": 2.8,
     "likes": 0,
     "price": 399.99,
-    "image": "https://images-ext-2.discordapp.net/external/nIdJO6YDohmA4j6Rqpf6TA9SEbuWxw4qx-yVj8quSqo/https/assets.rockpapershotgun.com/images/2020/04/AMD-Ryzen-CPU-1212x682.jpg/RPSS/thumbnail/1920x1080/format/jpg/quality/75?width=1804&height=1015"
+    "image": "https://th.bing.com/th/id/OIP.tFjEjAVtGL_N0BSOIAiW0QHaG2?pid=ImgDet&rs=1"
   },
 ]
