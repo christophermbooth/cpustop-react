@@ -5,12 +5,14 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import { Home, SingleProductView } from './pages'
+import { Home, SingleProductView } from './pages';
+import { TopBanner } from './components';
 import './app.scss';
 
 const App = () => {
   return (
     <Router>
+      <TopBanner />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/product/:itemId" component={SingleProductView} />
