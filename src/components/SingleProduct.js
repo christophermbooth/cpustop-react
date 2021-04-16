@@ -9,7 +9,6 @@ const SingleProduct = ({ product }) => {
   const { id } = product
 
   const handleLikeClick = () => {
-    //if not liked, hit increment API, set liked to true
     if (!liked) {
       setLiked(true)
       setCurrentLikes(product.likes++)
@@ -25,15 +24,31 @@ const SingleProduct = ({ product }) => {
   }
   
   return (
-    <div className="card">
-      <img src={product.image} />
-      <h1>{`${product.manufacturer} ${product.model}`}</h1>
-      <p>{product.description}</p>
-      <p className="price">${product.price}</p>
-      <p>Likes: {product.likes}</p>
-      <button onClick={handleLikeClick}>{liked ? "Unlike" : "Like" }</button>
-      <Link to="/">Return to All Products</Link>
+    <>
+      <Link to="/"><button className="return-button">Return to All Products</button></Link>
+    <div className="sp">
+      <div className="left-column">
+        <img src={product.image} />
+      </div>
+      <div className="right-column">
+        <div className="product-description">
+          <span>Processor</span>
+          <h1>{`${product.manufacturer} ${product.model}`}</h1>
+          <p className="price">Price: ${product.price}</p>
+          <p>Likes: {product.likes}</p>
+          <button onClick={handleLikeClick}>{liked ? "Unlike" : "Like" }</button>
+          <h2>Details:</h2>
+          <p>Cores: {product.cores}</p>
+          <p>Threads: {product.threads}</p>
+          <p>Base Clock Speed: {product.clock}</p>
+          <div className="product-description">
+            <h2>Description:</h2>
+            <p>{product.description}</p>
+          </div>
+        </div>
+      </div>
     </div>
+    </>
   )
 }
 
